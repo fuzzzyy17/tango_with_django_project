@@ -14,11 +14,11 @@
 		</div>
 		<div>
 			<a href = "/rango/about/"> About </a> <br />
-			<img src = "{% static "images/untitled.png" %}"
+			<img src="{% static "images/rango.jpg" %}"
 			     alt = "witcher" />
 		</div>
 		<div>
-			<img src = "{{ MEDIA_URL}}cat.png"
+			<img src="{{ MEDIA_URL}}cat.png"
 			     alt = "cat" />
 	</body>
 </html>

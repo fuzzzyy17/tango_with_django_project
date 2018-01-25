@@ -28,13 +28,17 @@ def populate():
           "url":"http://bottlepy.org/docs/dev/"},
           {"title":"Flask",
            "url":"http://flask.pocoo.org"} ]
-    cats = {"Python": {"pages": python_pages},
-            "Django": {"pages": django_pages},
-            "Other Frameworks": {"pages": other_pages} }
+    
+    cats = {"Python": {"pages": python_pages, "likes": 128, "views":64},
+            "Django": {"pages": django_pages, "likes": 64, "views":32},
+            "Other Frameworks": {"pages": other_pages, "likes":32, "views":16} }
 
 
     for cat, cat_data in cats.items():
-        c = add_cat(cat)
+        x =(cats[cat])
+        y = x['likes']
+        z = x['views']
+        c = add_cat(cat, y, z)
         for p in cat_data["pages"]:
             add_page(c, p["title"], p["url"])
 
@@ -49,8 +53,10 @@ def add_page(cat, title, url, views=0):
     p.save()
     return p
 
-def add_cat(name):
+def add_cat(name, likes, views):
     c = Category.objects.get_or_create(name=name)[0]
+    c.likes = likes
+    c.views = views
     c.save()
     return c
 
