@@ -10,10 +10,11 @@
 		<h1>Rango says...</h1>
 		<div> yoo broo <br /> </div>
 			<div>
+			<h2>Top Five Categories</h2>
 			{% if categories %}
 			<ul>
 				{% for category in categories %}
-					<li>{{ category.name}}</li>
+				<li><a href="/rango/category/{{ category.slug }}">{{ category.name }}</a> - {{ category.likes}} like(s)</li>
 				{% endfor %}
 			</ul>
 			{% else %}
@@ -25,8 +26,18 @@
 			<img src="{% static "images/rango.jpg" %}"
 			     alt = "witcher" />
 		</div>
+
 		<div>
-			<img src="{{ MEDIA_URL}}cat.png"
-			     alt = "cat" />
+			<h2>Top Five Pages</h2>
+			{% if pages %}
+			<ul>
+				{% for page in pages %}
+				<li><a href="{{ page.url}}">{{ page.title }}</a> - {{ page.category}} ({{ page.views }} view(s))</li>
+				{% endfor %}
+			</ul>
+			{% else %}
+			<strong>No pages at present.</strong>
+			{% endif %}
+		</div>
 	</body>
 </html>
