@@ -1,0 +1,4 @@
+
+<li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a> - {{ category.likes}} like(s)</li>
+
+<li><a href="/rango/category/{{ category.url }}">{{ category.name }}</a></li>

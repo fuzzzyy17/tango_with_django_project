@@ -13,7 +13,7 @@
 			{% if categories %}
 			<ul>
 				{% for category in categories %}
-				<li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a> - {{ category.likes}} like(s)</li>
+					<li><a href="{% url 'show_category' category.slug %}">{{ category.name }}</a> - {{ category.likes}} like(s)</li>
 				{% endfor %}
 			</ul>
 			{% else %}
