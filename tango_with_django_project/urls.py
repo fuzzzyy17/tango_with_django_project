@@ -21,6 +21,7 @@ from django.contrib import admin
 from rango import views
 from django.conf.urls import include
 
+app_name = 'rango'
 urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^rango/about', views.about, name='about'),
